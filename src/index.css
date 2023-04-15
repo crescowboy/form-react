@@ -1,13 +1,40 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.seleccion{
+  display: flex;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.opcion{
+ background-color: black;
+ color: white;
+ height: 300px;
+ margin: 5px 5px;
+ padding-top: 23px;
+ font-size: 1.2em;
+}
+
+.input{
+  
+  font-size: 1.2em;
+  padding: 8px;
+}
+
+.input input{
+  background-color: blue;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari y Chrome */
+  -o-transform: scale(3); /* Opera */
+  transform: scale(3);
+  /* opcional: agregar un borde para mejorar la apariencia */
+  border: 1px solid black;
+  border-radius: 50%;
 }

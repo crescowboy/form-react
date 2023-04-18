@@ -6,14 +6,12 @@ const Formzona = () => {
     const {register,handleSubmit,formState:{errors}} = useForm();
     const obtenerValores = (data)=>{
         console.table(data)
+        
     }
     
-    const [selectedOption, setSelectedOption] = useState("");
+    // const [selectedOption, setSelectedOption] = useState("");
 
-    const handleSelect=(e)=>{
-        setSelectedOption(e.target.value);
-        console.log(e.target.value)
-    }
+   
   return (
     <>
         <form onSubmit={handleSubmit(obtenerValores)}>
@@ -21,7 +19,10 @@ const Formzona = () => {
         <label htmlFor='enviar'>Seleccione la zona a visitar:
         <input type="submit" />
         </label>
+        {errors.selected?.type === "required" &&
+        <div className='aviso'>Seleccione una opcion</div>}
         </div>
+        
         <div className='seleccion'>
         {datos.map((opcion,index)  => (
             <div className='opcion' key={index}>
@@ -30,9 +31,11 @@ const Formzona = () => {
                 type="radio" 
                 name="selected" 
                 value={opcion.lugar}
-                checked={selectedOption === opcion.lugar} 
-                onChange={handleSelect} 
-                {...register("selected")} 
+                {...register("selected",
+                {
+                    required:true,
+                }
+                )}
             />
             
             <p>{opcion.lugar}</p> 
@@ -41,8 +44,10 @@ const Formzona = () => {
             
             </label>
         </div>
+        
         ))}
         </div>
+        
         </form>
      
 

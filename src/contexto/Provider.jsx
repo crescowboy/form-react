@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Contexto from './Context'
 import { datos } from '../data/data'
 
+const misDatos = [];
+
 const Provider = ({children}) => {
 
-     
+     const [etapas,setEtapas] = useState(0);
 
   return (
     <>
-     <Contexto.Provider v>
+     <Contexto.Provider value={{
+      etapas,
+      setEtapas,
+      misDatos
+     }}>
         {children}    
     </Contexto.Provider> 
     </>

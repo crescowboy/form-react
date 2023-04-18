@@ -13,7 +13,7 @@
 }
 
 .input{
-  
+  display: flex;
   font-size: 1.2em;
   padding: 8px;
 }
@@ -37,4 +37,53 @@ input[type='radio'] {
   /* opcional: agregar un borde para mejorar la apariencia */
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.aviso{
+  background-color: red;
+  color: white;
+  padding: 5px;
+  font-size: 0.7em;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.aviso2{
+  margin-left: 5px;
+  color: gray;
+}
+
+.preguntas label{
+  font-size: 1.3em;
+  margin-left: 5px;
+  
+}
+
+.boton{
+  background-color: blue;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+  margin-top: 13px;
+}
+
+.textfiel{
+  margin: 15px 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 2px solid gray;
+}
+
+.labes{
+  display: flex;
+  align-items: center;
+}
+
+.resumen{
+  color: green;
+  margin-left: 5px;
+  font-size: 1.2em;
 }

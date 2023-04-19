@@ -4,17 +4,34 @@ import Contexto from '../contexto/Context'
 import Formzona from './Formzona'
 
 const Resumen = () => {
-  const {misDatos} = useContext(Contexto);
+  const {misDatos,addDatos} = useContext(Contexto);
+  const {nombre,habitacion,personas,dias} = useContext(Contexto);
   return (
     <>
       {misDatos.map((dato,index)=>
         <div key={index}>
-        <p className='pru'>{dato.lugar}</p>
-        <p>{dato.precio}</p>
-        <img src={dato.imagen} alt="a" />
+          <h3>Resumen:</h3>
+          <img src={dato.imagen} alt="a" />
+          <div className='content'>
+          <p className='pru'>Zona: {dato.lugar}</p>
+          <p>$ por dia: {dato.precio}</p>
+          <div>
+          {nombre && <p>Nombre: {nombre}</p>}
+          {habitacion && <p>Habitacion: {habitacion}</p>}
+          {personas && <p>Personas: {personas}</p>}
+          {dias && <p>Dias: {dias}</p>}
+          {dias && <p>Cantidad a pagar: {dato.precio * dias}$</p>}
+        </div>
+          </div>
+        
+        
       </div>
       )
         }
+
+      
+        
+      
     </>
   )
 }

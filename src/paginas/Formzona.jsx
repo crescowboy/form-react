@@ -10,7 +10,7 @@ const Formzona = () => {
     const navegacion=useNavigate();
     const obtenerValores = (data)=>{
         console.table(data)
-        
+        setMisDatos([])
         const miZona=data.selected;
         const Datos = datos.find(d=>d.lugar === miZona);
         setMisDatos([...misDatos, {
@@ -20,6 +20,7 @@ const Formzona = () => {
           }]);
         setEtapas(etapas+3);
         navegacion("/preguntas")
+
         console.log(misDatos)
     }
     

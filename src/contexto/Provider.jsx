@@ -8,6 +8,11 @@ const Provider = ({children}) => {
 
      const [etapas,setEtapas] = useState(0);
      const [misDatos, setMisDatos] = useState([]);
+     const [addDatos, setAddDatos] = useState([]);
+     const [nombre, setNombre] = useState("");
+     const [habitacion, setHabitacion] = useState("");
+     const [personas, setPersonas] = useState("");
+     const [dias, setDias] = useState("");
 
   return (
     
@@ -15,7 +20,17 @@ const Provider = ({children}) => {
       etapas,
       setEtapas,
       misDatos,
-      setMisDatos
+      setMisDatos,
+      addDatos,
+      setAddDatos,
+      nombre,
+      setNombre,
+      habitacion,
+      setHabitacion,
+      personas,
+      setPersonas,
+      dias,
+      setDias
      }}>
         {children}    
     </Contexto.Provider> 

@@ -1,13 +1,32 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Resumen from './Resumen';
 import { NavLink, Navigate } from 'react-router-dom';
+import Contexto from '../contexto/Context';
 
 const Formpreguntas = () => {
     const {register,handleSubmit,formState:{errors},watch} = useForm();
     const [activeQuestion,setActiveQuestion] = useState(1);
+    const {misDatos,setMisDatos} = useContext(Contexto);
+    const {addDatos,setAddDatos,nombre,setNombre,habitacion,setHabitacion,personas,setPersonas,dias,setDias} = useContext(Contexto);
     const obtenerValores=(data)=>{
-        setActiveQuestion(activeQuestion+1)
+        
+        // console.log(data)
+
+       
+        
+        // setAddDatos([...addDatos,{
+        //     nombre: data.nombre,
+        //     habitacion: data.habitacion,
+        //     personas: data.personas,
+        //     dias: data.dias
+        // }])
+        setActiveQuestion(activeQuestion+1);
+        setNombre(data.nombre)
+        setHabitacion(data.habitacion)
+        setPersonas(data.personas)
+        setDias(data.dias)
+        // console.log(addDatos)
     }
   return (
     <>

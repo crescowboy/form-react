@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Resumen from './Resumen';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 
 const Formpreguntas = () => {
     const {register,handleSubmit,formState:{errors},watch} = useForm();
@@ -21,7 +21,7 @@ const Formpreguntas = () => {
                     <div className='resumen'>{watch("nombre")} como nombre de usuario</div>}
                     </div><br></br>
                 </div>
-            <input className='textfiel' type="text" name='nombre' {...register("nombre",
+            <input className='textfiel' type="text" name='nombre' autoFocus {...register("nombre",
             {
                 required:true,
                 maxLength:15
@@ -48,7 +48,7 @@ const Formpreguntas = () => {
                     </div><br></br>
                 </div>
             
-            <input className='textfiel' type="number" name='habitacion' {...register("habitacion",
+            <input className='textfiel' type="number" name='habitacion' autoFocus {...register("habitacion",
             {
                 required:true,
                 maxLength:15,
@@ -82,7 +82,7 @@ const Formpreguntas = () => {
                     <div className='resumen'>{watch("personas")} personas</div>}
                     </div><br></br>
                 </div>
-            <input className='textfiel' type="number" name='personas' {...register("personas",
+            <input className='textfiel' type="number" name='personas' autoFocus {...register("personas",
             {
                 required:true,
                 maxLength:15,
@@ -115,7 +115,7 @@ const Formpreguntas = () => {
                     <div className='resumen'>{watch("dias")} dias</div>}
                     </div><br></br>
                 </div>
-            <input className='textfiel' type="number" name='dias' {...register("dias",
+            <input className='textfiel' type="number" name='dias' autoFocus {...register("dias",
             {
                 required:true,
                 maxLength:15,
@@ -143,8 +143,8 @@ const Formpreguntas = () => {
         {activeQuestion === 5 &&(
             <div className='preguntas'>
             <label htmlFor="nombre">¿Quieres modificar los datos o finalizar e imprimir tu pedido?</label><br></br>
-            <NavLink to="/">Volver</NavLink>
-            <button className='boton'>Volver</button><button className='boton'>Imprimir</button>
+            <NavLink className='boton' to="/">Volver</NavLink>
+            <button className='boton'>Imprimir</button>
             <br>
             </br>
             

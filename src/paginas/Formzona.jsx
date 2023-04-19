@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {useForm} from "react-hook-form"
 import { datos } from '../data/data';
+import Contexto from '../contexto/Context';
+import { useNavigate } from 'react-router-dom';
 
 const Formzona = () => {
     const {register,handleSubmit,formState:{errors}} = useForm();
+    const {etapas,setEtapas,misDatos,setMisDatos}=useContext(Contexto);
+    const navegacion=useNavigate();
     const obtenerValores = (data)=>{
         console.table(data)
         
+        const miZona=data.selected;
+        const Datos = datos.find(d=>d.lugar === miZona);
+        setMisDatos([...misDatos, {
+            imagen: Datos.imagen,
+            lugar: Datos.lugar,
+            precio: Datos.precio,
+          }]);
+        setEtapas(etapas+3);
+        navegacion("/preguntas")
+        console.log(misDatos)
     }
     
     // const [selectedOption, setSelectedOption] = useState("");

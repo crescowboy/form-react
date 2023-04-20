@@ -12,23 +12,36 @@ const Resumen = () => {
   return (
     <>
       {misDatos.map((dato,index)=>
-        <div key={index}>
-          <h3>Resumen:</h3>
-          <img src={dato.imagen} alt="a" />
-          <div className='content'>
-          <p className='pru'>Zona: {dato.lugar}</p>
-          <p>$ por dia: {dato.precio}</p>
-          <div>
-          {nombre && <p>Nombre: {nombre}</p>}
-          {habitacion && <p>Habitacion: {habitacion}</p>}
-          {personas && <p>Personas: {personas}</p>}
-          {dias && <p>Dias: {dias}</p>}
-          {dias && <p>Cantidad a pagar: {dato.precio * dias *personas*habitacion}$</p>}
+        <div className='container-resumen' key={index}>
+            <h3>Resumen:</h3>
+            <img className='imgR' src={dato.imagen} alt="a" />
+            <div className='content'>
+            <div className='item'>
+            <div>Zona:</div> <div>{dato.lugar}</div>
+            </div>
+            <div className='item'>
+            <div>$ por dia:</div> <div>{dato.precio}</div>
+            </div>
+          
+          
+            <div className='item'>
+            {nombre && <div>Nombre:</div>}{nombre && <div>{nombre}</div>}
+            </div>
+            <div className='item'>
+            {habitacion && <div>Habitacion:</div>}{habitacion && <div>{habitacion}</div>}
+            </div>
+            <div className='item'>
+            {personas && <div>Personas:</div>}{personas && <div>{personas}</div>}
+            </div>
+            <div className='item'>
+            {dias && <div>Dias:</div>}{dias && <div>{dias}</div>}
+            </div>
+          {dias && <div>Cantidad a pagar: {dato.precio * dias *personas*habitacion}$</div>}
         </div>
-          </div>
+        </div>
         
         
-      </div>
+      
       )
         }
 

@@ -1,32 +1,35 @@
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Resumen from './Resumen';
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import Contexto from '../contexto/Context';
 
 const Formpreguntas = () => {
     const {register,handleSubmit,formState:{errors},watch} = useForm();
     const [activeQuestion,setActiveQuestion] = useState(1);
+    const navegacion=useNavigate();
     const {misDatos,setMisDatos} = useContext(Contexto);
     const {addDatos,setAddDatos,nombre,setNombre,habitacion,setHabitacion,personas,setPersonas,dias,setDias} = useContext(Contexto);
+   
+    const nave =()=>{
+        setMisDatos([])
+        setNombre("")
+        setHabitacion("")
+        setPersonas("")
+        setDias("")
+        navegacion("/")
+
+    }
+   
     const obtenerValores=(data)=>{
         
-        // console.log(data)
-
-       
         
-        // setAddDatos([...addDatos,{
-        //     nombre: data.nombre,
-        //     habitacion: data.habitacion,
-        //     personas: data.personas,
-        //     dias: data.dias
-        // }])
         setActiveQuestion(activeQuestion+1);
         setNombre(data.nombre)
         setHabitacion(data.habitacion)
         setPersonas(data.personas)
         setDias(data.dias)
-        // console.log(addDatos)
+        
     }
   return (
     <>
@@ -163,8 +166,8 @@ const Formpreguntas = () => {
         {activeQuestion === 5 &&(
             <div className='preguntas'>
             <label htmlFor="nombre">¿Quieres modificar los datos o finalizar e imprimir tu pedido?</label><br></br>
-            <NavLink className='boton' to="/">Volver</NavLink>
-            <button className='boton'>Imprimir</button>
+            <button className='boton' onClick={nave}>Volver</button>
+            <button className='boton' >Imprimir</button>
             <br>
             </br>
             

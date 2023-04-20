@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .seleccion{
   display: flex;
   text-align: center;
@@ -90,6 +95,30 @@ input[type='radio'] {
 }
 
 .container{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 20px;
+}
+
+.container-resumen{
+  margin-right: 100px;
+}
+
+.container-resumen h3{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+
+.imgR{
+  width: 250px;
+}
+
+/* .content{
+  display: flex;
+} */
+
+.item{
   display: flex;
   justify-content: space-between;
 }

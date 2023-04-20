@@ -6,6 +6,9 @@ import Formzona from './Formzona'
 const Resumen = () => {
   const {misDatos,addDatos} = useContext(Contexto);
   const {nombre,habitacion,personas,dias} = useContext(Contexto);
+
+  
+
   return (
     <>
       {misDatos.map((dato,index)=>
@@ -20,7 +23,7 @@ const Resumen = () => {
           {habitacion && <p>Habitacion: {habitacion}</p>}
           {personas && <p>Personas: {personas}</p>}
           {dias && <p>Dias: {dias}</p>}
-          {dias && <p>Cantidad a pagar: {dato.precio * dias}$</p>}
+          {dias && <p>Cantidad a pagar: {dato.precio * dias *personas*habitacion}$</p>}
         </div>
           </div>
         

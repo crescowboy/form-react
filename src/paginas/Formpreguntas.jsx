@@ -30,6 +30,7 @@ const Formpreguntas = () => {
     }
   return (
     <>
+    <div className='container'>
       <form onSubmit={handleSubmit(obtenerValores)}>
         {activeQuestion === 1 &&(
             <div className='preguntas'>
@@ -176,6 +177,7 @@ const Formpreguntas = () => {
         
       </form>
       <Resumen></Resumen>
+      </div>
     </>
   )
 }

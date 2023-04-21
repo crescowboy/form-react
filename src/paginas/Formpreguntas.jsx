@@ -1,16 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Resumen from './Resumen';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import Contexto from '../contexto/Context';
+import ReactToPrint from 'react-to-print';
 
 const Formpreguntas = () => {
     const {register,handleSubmit,formState:{errors},watch} = useForm();
     const [activeQuestion,setActiveQuestion] = useState(1);
     const navegacion=useNavigate();
-    const {misDatos,setMisDatos} = useContext(Contexto);
+    const {misDatos,setMisDatos,componentRef} = useContext(Contexto);
     const {addDatos,setAddDatos,nombre,setNombre,habitacion,setHabitacion,personas,setPersonas,dias,setDias} = useContext(Contexto);
-   
+    // const componentRef = useRef();
+
+
     const nave =()=>{
         setMisDatos([])
         setNombre("")
@@ -163,11 +166,16 @@ const Formpreguntas = () => {
 
         
 
-        {activeQuestion === 5 &&(
+        {activeQuestion >= 5  &&(
             <div className='preguntas'>
             <label htmlFor="nombre">¿Quieres modificar los datos o finalizar e imprimir tu pedido?</label><br></br>
             <button className='boton' onClick={nave}>Volver</button>
-            <button className='boton' >Imprimir</button>
+            <ReactToPrint
+            trigger={() => {return <button className='boton'>Imprimir</button>}}
+            content={() => componentRef.current}
+            documentTitle='new document'
+            pageStyle='print'
+            />
             <br>
             </br>
             

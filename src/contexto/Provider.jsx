@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Contexto from './Context'
 import { datos } from '../data/data'
 
@@ -13,6 +13,7 @@ const Provider = ({children}) => {
      const [habitacion, setHabitacion] = useState("");
      const [personas, setPersonas] = useState("");
      const [dias, setDias] = useState("");
+     const componentRef = useRef();
 
   return (
     
@@ -30,7 +31,8 @@ const Provider = ({children}) => {
       personas,
       setPersonas,
       dias,
-      setDias
+      setDias,
+      componentRef
      }}>
         {children}    
     </Contexto.Provider> 

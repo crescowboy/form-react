@@ -15,8 +15,15 @@
  margin: 5px 5px;
  padding-top: 23px;
  font-size: 1.2em;
+ width: 100%;
 }
 
+.opcion img{
+  width: 100%;
+}
+.opcion p{
+  margin-bottom: 10px;
+}
 .input{
   display: flex;
   font-size: 1.2em;
@@ -42,6 +49,7 @@ input[type='radio'] {
   /* opcional: agregar un borde para mejorar la apariencia */
   border: 1px solid black;
   border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 .aviso{

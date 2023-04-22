@@ -4,6 +4,7 @@ import Resumen from './Resumen';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import Contexto from '../contexto/Context';
 import ReactToPrint from 'react-to-print';
+import Imprimir from './Imprimir';
 
 const Formpreguntas = () => {
     const {register,handleSubmit,formState:{errors},watch} = useForm();
@@ -37,9 +38,10 @@ const Formpreguntas = () => {
   return (
     <>
     <div className='container'>
-      <form onSubmit={handleSubmit(obtenerValores)}>
+      <form className='formulario' onSubmit={handleSubmit(obtenerValores)}>
         {activeQuestion === 1 &&(
             <div className='preguntas'>
+                <div className='content-primary'>
             <div className='labes'>
                     <label htmlFor="nombre">Escribe tu nombre y apellidos: </label>
                     <div>
@@ -47,6 +49,7 @@ const Formpreguntas = () => {
                     <div className='resumen'>{watch("nombre")} como nombre de usuario</div>}
                     </div><br></br>
                 </div>
+                
             <input className='textfiel' type="text" name='nombre' autoFocus {...register("nombre",
             {
                 required:true,
@@ -57,6 +60,7 @@ const Formpreguntas = () => {
             </br>
             {errors.nombre?.type === "required" &&
             <div className='aviso2'>Este dato es obligatorio</div>}
+            </div>
             <input className='boton' type="submit" />
             
         </div>
@@ -92,6 +96,8 @@ const Formpreguntas = () => {
             <div className='aviso2'>La cantidad minima de habitaciones es 1</div>}
             {(errors.habitacion?.type === "max") &&
             <div className='aviso2'>La cantidad maxima de habitaciones es 7</div>}
+            <div>_____________________________________________________________________________________________________________________________________</div>
+            
             <input className='boton' type="submit" />
             
         </div>
@@ -124,6 +130,8 @@ const Formpreguntas = () => {
             <div className='aviso2'>La cantidad minima de personas es 1</div>}
             {(errors.personas?.type === "max") &&
             <div className='aviso2'>La cantidad maxima de personas es 7</div>}
+            <div>_____________________________________________________________________________________________________________________________________</div>
+            
             <input className='boton' type="submit" />
            
             
@@ -157,6 +165,8 @@ const Formpreguntas = () => {
             <div className='aviso2'>La cantidad minima de dias es 1</div>}
             {(errors.dias?.type === "max") &&
             <div className='aviso2'>La cantidad maxima de dias es 7</div>}
+            <div>_____________________________________________________________________________________________________________________________________</div>
+            
             <input className='boton' type="submit" />
             
         </div>
@@ -187,7 +197,31 @@ const Formpreguntas = () => {
         )}
         
       </form>
+      {/* <div className='colum'>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      <div>-</div>
+      </div> */}
+
+      
       <Resumen></Resumen>
+      
       </div>
     </>
   )

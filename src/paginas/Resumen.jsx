@@ -3,6 +3,7 @@ import { datos } from '../data/data';
 import Contexto from '../contexto/Context';
 import Formzona from './Formzona';
 import ReactToPrint from 'react-to-print';
+import '../print.css';
 
 const Resumen = () => {
   const { misDatos, addDatos } = useContext(Contexto);
@@ -17,8 +18,11 @@ const Resumen = () => {
          
           <div ref={componentRef}>
             <h3>Resumen:</h3>
-            <img className='imgR' src={dato.imagen} alt='a' />
+            
             <div className='content'>
+            <div className='item'>
+            <img className='imgR' src={dato.imagen} alt='a' />
+            </div>
               <div className='item'>
                 <div>Zona:</div> <div>{dato.lugar}</div>
               </div>
@@ -42,11 +46,13 @@ const Resumen = () => {
                 {dias && <div>Dias:</div>}
                 {dias && <div>{dias}</div>}
               </div>
+              <div className='item'>
               {dias && (
                 <div>
-                  Cantidad a pagar: {dato.precio * dias * personas * habitacion}$
+                  Total: {dato.precio * dias * personas * habitacion}$
                 </div>
               )}
+              </div>
             </div>
           </div>
         </div>
